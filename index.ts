@@ -1,4 +1,4 @@
-declare namespace api {
+export declare namespace api {
     namespace automaticMinds {
         type diaryValue = {
             conclusion: string;
