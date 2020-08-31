@@ -1,0 +1,22 @@
+{
+  "name": "diary-types",
+  "version": "1.0.0",
+  "description": "diary",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coolswood/-types-diary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coolswood/-types-diary/issues"
+  },
+  "homepage": "https://github.com/coolswood/-types-diary#readme",
+  "dependencies": {
+    "typescript": "^4.0.2"
+  }
+}
