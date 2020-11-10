@@ -54,4 +54,56 @@ export declare namespace api {
             | 'guilt'
             | 'loneliness';
     }
+
+    type alldata = api.automaticMinds.diaryValue & api.psychologyTests.hduValue & api.psychologyTests.bdiValue
+
+    type authData = {
+        login: string;
+        password: string;
+    }
+
+    namespace register {
+        type request = authData
+
+        type response = {
+            status: 'OK' | 'wrongPassword';
+            data: authData | null;
+            text?: 'Неправильный пароль',
+        }
+    }
+
+    namespace getPassword {
+        type request = Pick<authData, 'login'>
+
+        type response = {
+            status: 'OK' | 'wrongLogin';
+            text: 'Пароль отправлен на указанный Email' | 'Не найден Email'
+        }
+    }
+
+    namespace backup {
+        type request = {
+            login: string;
+            lastUpdate: string;
+            data: alldata;
+        }
+
+        type response = {
+            status: 'OK'
+        }
+    }
+
+    namespace lastUpdate {
+        type response = {
+            status: 'OK' | 'noData';
+            lastUpdate?: string
+        }
+    }
+
+    namespace restore {
+        type response = {
+            status: 'OK';
+            data: alldata
+        }
+    }
 }
