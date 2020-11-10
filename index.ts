@@ -94,6 +94,8 @@ export declare namespace api {
     }
 
     namespace lastUpdate {
+        type request = Pick<authData, 'login'>
+
         type response = {
             status: 'OK' | 'noData';
             lastUpdate?: string
@@ -101,6 +103,8 @@ export declare namespace api {
     }
 
     namespace restore {
+        type request = Pick<authData, 'login'>
+
         type response = {
             status: 'OK';
             data: alldata
