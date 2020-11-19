@@ -1,21 +1,21 @@
 {
-  "name": "diary-types",
+  "name": "@types/diary",
+  "author": "coolswood",
   "version": "1.2.1",
   "description": "diary",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/coolswood/-types-diary.git"
+  "repository": "https://github.com/coolswood/diary-types",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/coolswood/-types-diary/issues"
+    "url": "https://github.com/coolswood/diary-types.git/issues"
   },
-  "homepage": "https://github.com/coolswood/-types-diary#readme",
+  "homepage": "https://github.com/coolswood/diary-types.git#readme",
   "dependencies": {
     "typescript": "^4.0.2"
   }
