@@ -1,6 +1,7 @@
 {
-  "name": "@types/diary",
+  "name": "diary-mind-health",
   "author": "coolswood",
+  "private": false,
   "version": "1.2.1",
   "description": "diary",
   "main": "index.js",
