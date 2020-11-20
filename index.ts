@@ -11,6 +11,30 @@ export declare namespace api {
             moodSelected: api.icons.mood[] | [];
             solution: string;
         };
+
+        type compareItem = {
+            id: number;
+            text: string;
+            level: number;
+        };
+
+        type score = {
+            yes: number;
+            no: number;
+            commonScore: number;
+            percent: number;
+        };
+
+        type compareValue = {
+            name: string;
+            isNegative: boolean;
+            isUnresolved: boolean;
+            id: number;
+            date: string;
+            score: score;
+            yes: compareItem[];
+            no: compareItem[];
+        };
     }
 
     namespace psychologyTests {
