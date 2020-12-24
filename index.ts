@@ -158,4 +158,23 @@ export declare namespace api {
             posts: BlogItemType[]
         }
     }
+
+    namespace consultation {
+        type request = {
+            name: string;
+            email: string;
+            text: string;
+            bdiScore: number;
+            bdiCount: number;
+            bdiConclusion: string;
+            hduScore: number[];
+            topMindErrors: string[];
+            topEmotions: string[];
+            visits: number;
+        }
+
+        type response = {
+            status: 'OK';
+        }
+    }
 }
