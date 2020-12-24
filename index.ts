@@ -164,12 +164,12 @@ export declare namespace api {
             name: string;
             email: string;
             text: string;
-            bdiScore: number;
-            bdiCount: number;
-            bdiConclusion: string;
-            hduScore: number[];
-            topMindErrors: string[];
-            topEmotions: string[];
+            bdiScore?: number;
+            bdiCount?: number;
+            bdiConclusion?: string;
+            hduScore?: number[];
+            topMindErrors?: string[];
+            topEmotions?: string[];
             visits: number;
         }
 
