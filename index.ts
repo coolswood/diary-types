@@ -79,7 +79,7 @@ export declare namespace api {
             | 'loneliness';
     }
 
-    type alldata = api.automaticMinds.diaryValue & api.psychologyTests.hduValue & api.psychologyTests.bdiValue
+    type alldata = api.automaticMinds.diaryValue & api.psychologyTests.hduValue & api.psychologyTests.bdiValue & api.automaticMinds.compareValue
 
     type authData = {
         login: string;
@@ -132,6 +132,30 @@ export declare namespace api {
         type response = {
             status: 'OK';
             data: alldata
+        }
+    }
+
+    namespace posts {
+        type BlogItemType = {
+            shortcode: string;
+            caption: string;
+            owner: {
+                username: string;
+                profilePicture: string;
+            };
+            childrenPictures: {
+                url: string;
+                videoUrl: string | null;
+            }[];
+        };
+
+        type request = {
+            start: number;
+            offset: number;
+        }
+
+        type response = {
+            posts: BlogItemType[]
         }
     }
 }
