@@ -149,13 +149,22 @@ export declare namespace api {
             }[];
         };
 
+        type FilterTypes = 'all' | 'neurosis' | 'dependency' | 'anxiety' | 'loss' | 'advice';
+
+        type BlogFilters = {
+            name: string;
+            type: FilterTypes;
+        }[];
+
         type request = {
             start: number;
             offset: number;
+            filters: FilterTypes[];
         }
 
         type response = {
-            posts: BlogItemType[]
+            posts: BlogItemType[];
+            filters: BlogFilters;
         }
     }
 
