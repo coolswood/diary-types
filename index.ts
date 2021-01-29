@@ -90,9 +90,9 @@ export declare namespace api {
         type request = authData
 
         type response = {
-            status: 'OK' | 'wrongPassword';
+            status: 'OK' | 'wrongPassword' | 'notFound';
             data: authData | null;
-            text?: 'Неправильный пароль',
+            text?: 'Неправильный пароль' | 'Пользователь не найден',
         }
     }
 
