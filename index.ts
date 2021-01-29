@@ -7,7 +7,7 @@ export declare namespace api {
             event: string;
             id: number;
             logicError: string;
-            moodRange: string;
+            moodRange: number;
             moodSelected: api.icons.mood[] | [];
             solution: string;
         };
@@ -149,22 +149,22 @@ export declare namespace api {
             }[];
         };
 
-        type FilterTypes = 'all' | 'neurosis' | 'dependency' | 'anxiety' | 'loss' | 'advice';
+        type FilterTypes = 'all' | 'neurosis' | 'dependency' | 'anxiety' | 'loss' | 'advice' | 'psy' | 'fault';
 
-        type BlogFilters = {
+        type BlogFilter = {
             name: string;
             type: FilterTypes;
-        }[];
+        };
 
         type request = {
             start: number;
             offset: number;
-            filters: FilterTypes[];
+            filter: FilterTypes;
         }
 
         type response = {
             posts: BlogItemType[];
-            filters: BlogFilters;
+            filters: BlogFilter[];
         }
     }
 
@@ -177,8 +177,8 @@ export declare namespace api {
             bdiCount: number;
             bdiConclusion: string;
             hduScore: string[];
-            topMindErrors?: string[];
-            topEmotions?: string[];
+            topMindErrors?: any[];
+            topEmotions?: any[];
             visits: number;
         }
 
