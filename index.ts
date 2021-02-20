@@ -169,21 +169,48 @@ export declare namespace api {
     }
 
     namespace consultation {
-        type request = {
+
+        type statusTypes = 'empty' | 'answered' | 'refuse' | 'accept';
+
+        type answerRequest = {
+            staffEmail: string;
+            userEmail: string;
+            text: string;
+        }
+
+        type answerTypes = {
+            text: string;
+        }
+
+        type userType = {
             name: string;
             email: string;
-            text: string;
-            bdiScore: number;
-            bdiCount: number;
-            bdiConclusion: string;
-            hduScore: string[];
-            topMindErrors?: any[];
-            topEmotions?: any[];
-            visits: number;
+            age: number;
+            status: statusTypes;
+            question: {
+                difficulties: string;
+                help: string;
+                reason: string;
+                condition: string;
+                example: string;
+            };
+            answer?: answerTypes;
+        };
+
+        type request = {
+            name: string,
+            email: string,
+            age: number,
+            difficulties: string,
+            help: string,
+            reason: string,
+            condition: string,
+            example: string,
         }
 
         type response = {
-            status: 'OK';
+            staffEmail?: string;
+            status?: "OK";
         }
     }
 }
