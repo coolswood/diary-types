@@ -170,10 +170,61 @@ export declare namespace api {
 
     namespace consultation {
 
-        type statusTypes = 'empty' | 'answered' | 'refuse' | 'accept';
+        type staffType = {
+            email: specialistEmail;
+            tel?: number | null;
+            consultations: number;
+            dailyLimit: number;
+            consultationsToday: number;
+            unanswered: number;
+            isWoman: boolean;
+            money: number;
+        }
+
+        type social = 'WhatsApp' | 'Telegram' | 'Viber' | 'SMS сообщение';
+
+        type specialistEmail =
+            | 'lady.kulowa2010@yandex.ru'
+            | 'Verevkina@inbox.ru'
+            | 'shakirov.therapist@gmail.com' | 'aysakulikova@gmail.com';
+
+        type specialistVal = {
+            img: string;
+            name: string;
+            special: string;
+            text: any;
+        }
+
+        namespace visit {
+            type request = {
+                staffEmail: api.consultation.specialistEmail;
+                userEmail: string;
+            }
+        }
+
+        namespace sendPhone {
+            type request = {
+                staffEmail: api.consultation.specialistEmail;
+                userEmail: string;
+                tel: number;
+                social: social
+            }
+        }
+
+        type decisionRequest = {
+            staffEmail: api.consultation.specialistEmail;
+            userEmail: string;
+            decision: statusTypes;
+        }
+
+        type checkAnswerResponse = {
+            hasAnswer: boolean;
+        }
+
+        type statusTypes = 'empty' | 'answered' | 'refuse' | 'accept' | 'visited' | 'acceptWithPhone';
 
         type answerRequest = {
-            staffEmail: string;
+            staffEmail: api.consultation.specialistEmail;
             userEmail: string;
             text: string;
         }
@@ -185,6 +236,9 @@ export declare namespace api {
         type userType = {
             name: string;
             email: string;
+            tel?: number | null;
+            social?: social | null;
+            token?: string;
             age: number;
             status: statusTypes;
             question: {
@@ -209,7 +263,7 @@ export declare namespace api {
         }
 
         type response = {
-            staffEmail?: string;
+            staffEmail?: api.consultation.specialistEmail;
             status?: "OK";
         }
     }
