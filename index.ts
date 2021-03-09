@@ -170,6 +170,13 @@ export declare namespace api {
 
     namespace consultation {
 
+        type staffProfileType = {
+            photo: string,
+            name: string,
+            special: string,
+            text: string
+        }
+
         type staffType = {
             email: specialistEmail;
             tel?: number | null;
@@ -179,12 +186,17 @@ export declare namespace api {
             unanswered: number;
             isWoman: boolean;
             money: number;
+            profile: staffProfileType
         }
 
         type social = 'WhatsApp' | 'Telegram' | 'Viber' | 'SMS сообщение';
 
         type specialistEmail =
             | 'lady.kulowa2010@yandex.ru'
+            | 'tashima-pw@mail.ru'
+            | 'e.pavshintseva@yandex.ru'
+            | 'valeriya-sochneva@ya.ru'
+            | 'zheurov@yandex.ru'
             | 'Verevkina@inbox.ru'
             | 'shakirov.therapist@gmail.com' | 'aysakulikova@gmail.com';
 
