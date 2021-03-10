@@ -224,6 +224,10 @@ export declare namespace api {
             }
         }
 
+        namespace updateStaffProfile {
+            type request = staffProfileType & { staffEmail: string }
+        }
+
         type decisionRequest = {
             staffEmail: string;
             userEmail: string;
@@ -278,6 +282,17 @@ export declare namespace api {
         type response = {
             staffEmail?: string;
             status?: "OK";
+        }
+    }
+
+    namespace tests {
+
+        type testsNamesTypes = 'bdi' | 'hdu' | 'worry'
+
+        namespace timer {
+            type request = {
+                type: testsNamesTypes;
+            }
         }
     }
 }
