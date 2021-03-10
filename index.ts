@@ -178,7 +178,7 @@ export declare namespace api {
         }
 
         type staffType = {
-            email: specialistEmail;
+            email: string;
             tel?: number | null;
             consultations: number;
             dailyLimit: number;
@@ -191,15 +191,6 @@ export declare namespace api {
 
         type social = 'WhatsApp' | 'Telegram' | 'Viber' | 'SMS сообщение';
 
-        type specialistEmail =
-            | 'lady.kulowa2010@yandex.ru'
-            | 'tashima-pw@mail.ru'
-            | 'e.pavshintseva@yandex.ru'
-            | 'valeriya-sochneva@ya.ru'
-            | 'zheurov@yandex.ru'
-            | 'Verevkina@inbox.ru'
-            | 'shakirov.therapist@gmail.com' | 'aysakulikova@gmail.com';
-
         type specialistVal = {
             img: string;
             name: string;
@@ -209,14 +200,24 @@ export declare namespace api {
 
         namespace visit {
             type request = {
-                staffEmail: api.consultation.specialistEmail;
+                staffEmail: string;
                 userEmail: string;
+            }
+        }
+
+        namespace getAnswer {
+            type response = {
+                answer: api.consultation.userType['answer'],
+                photo: staffProfileType["photo"],
+                name: staffProfileType["name"],
+                special: staffProfileType["special"],
+                text: staffProfileType["text"],
             }
         }
 
         namespace sendPhone {
             type request = {
-                staffEmail: api.consultation.specialistEmail;
+                staffEmail: string;
                 userEmail: string;
                 tel: number;
                 social: social
@@ -224,7 +225,7 @@ export declare namespace api {
         }
 
         type decisionRequest = {
-            staffEmail: api.consultation.specialistEmail;
+            staffEmail: string;
             userEmail: string;
             decision: statusTypes;
         }
@@ -236,7 +237,7 @@ export declare namespace api {
         type statusTypes = 'empty' | 'answered' | 'refuse' | 'accept' | 'visited' | 'acceptWithPhone';
 
         type answerRequest = {
-            staffEmail: api.consultation.specialistEmail;
+            staffEmail: string;
             userEmail: string;
             text: string;
         }
@@ -275,7 +276,7 @@ export declare namespace api {
         }
 
         type response = {
-            staffEmail?: api.consultation.specialistEmail;
+            staffEmail?: string;
             status?: "OK";
         }
     }
