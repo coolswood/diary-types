@@ -177,6 +177,10 @@ export declare namespace api {
             text: string
         }
 
+        type staffTariffType = {
+            receiving: number
+        }
+
         type staffType = {
             email: string;
             tel?: number | null;
@@ -186,6 +190,7 @@ export declare namespace api {
             unanswered: number;
             isWoman: boolean;
             money: number;
+            tariff: staffTariffType;
             profile: staffProfileType
         }
 
