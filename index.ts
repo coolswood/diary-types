@@ -183,13 +183,12 @@ export declare namespace api {
 
         type staffType = {
             email: string;
-            tel?: number | null;
             consultations: number;
             dailyLimit: number;
             consultationsToday: number;
             unanswered: number;
             isWoman: boolean;
-            money: number;
+            money: string;
             tariff: staffTariffType;
             profile: staffProfileType
         }
@@ -297,6 +296,29 @@ export declare namespace api {
         namespace timer {
             type request = {
                 type: testsNamesTypes;
+            }
+        }
+    }
+
+    namespace donation {
+        type donat = {
+            name: string,
+            money: string,
+            message: string
+        }
+
+        namespace donationGet {
+            type response = {
+                donations: donat[]
+            }
+        }
+
+        namespace donationAdd {
+
+            type request = donat;
+
+            type response = {
+                donations: donat[]
             }
         }
     }
