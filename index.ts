@@ -183,12 +183,13 @@ export declare namespace api {
 
         type staffType = {
             email: string;
+            tel?: number | null;
             consultations: number;
             dailyLimit: number;
             consultationsToday: number;
             unanswered: number;
             isWoman: boolean;
-            money: string;
+            money: number;
             tariff: staffTariffType;
             profile: staffProfileType
         }
@@ -248,10 +249,12 @@ export declare namespace api {
             staffEmail: string;
             userEmail: string;
             text: string;
+            price?: number;
         }
 
         type answerTypes = {
             text: string;
+            price?: number;
         }
 
         type userType = {
