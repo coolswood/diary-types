@@ -325,4 +325,23 @@ export declare namespace api {
             }
         }
     }
+
+    namespace bot {
+        type option = Record<string, string>
+
+        type dialog = {
+            text: string[],
+            options?: option,
+            input?: string,
+            action?: string;
+        }
+
+        namespace getId {
+            type request = { id: string, steps: string[] };
+        }
+
+        namespace ask {
+            type request = { text: string, parentId: string };
+        }
+    }
 }
