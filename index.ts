@@ -59,6 +59,9 @@ export declare namespace api {
             | 'common'
             | 'filter'
             | 'discval'
+            | 'prediction'
+            | 'catastrophization'
+            | 'read'
             | 'jump'
             | 'moreMine'
             | 'emo'
@@ -190,6 +193,7 @@ export declare namespace api {
             unanswered: number;
             isWoman: boolean;
             money: number;
+            spended: number;
             tariff: staffTariffType;
             profile: staffProfileType
         }
@@ -241,6 +245,7 @@ export declare namespace api {
 
         type checkAnswerResponse = {
             hasAnswer: boolean;
+            staffEmail?: string;
         }
 
         type statusTypes = 'empty' | 'answered' | 'refuse' | 'accept' | 'visited' | 'acceptWithPhone';
@@ -249,12 +254,14 @@ export declare namespace api {
             staffEmail: string;
             userEmail: string;
             text: string;
-            price?: number;
+            price?: string;
+            time?: string;
         }
 
         type answerTypes = {
             text: string;
-            price?: number;
+            price?: string;
+            time?: string;
         }
 
         type userType = {
