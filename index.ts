@@ -198,6 +198,8 @@ export declare namespace api {
             profile: staffProfileType
         }
 
+        type staffListType = Record<string, api.consultation.staffType>;
+
         type social = 'WhatsApp' | 'Telegram' | 'Viber' | 'SMS сообщение';
 
         type specialistVal = {
@@ -211,6 +213,17 @@ export declare namespace api {
             type request = {
                 staffEmail: string;
                 userEmail: string;
+            }
+        }
+
+        namespace getAllStaff {
+            type request = {
+                ownerEmail?: string;
+            }
+
+            type response = {
+                staff: staffListType;
+                commonCount: number;
             }
         }
 
@@ -272,6 +285,7 @@ export declare namespace api {
             token?: string;
             age: number;
             status: statusTypes;
+            startDate?: number;
             question: {
                 difficulties: string;
                 help: string;
