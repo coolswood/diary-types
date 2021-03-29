@@ -184,6 +184,11 @@ export declare namespace api {
             receiving: number
         }
 
+        type ownerType = {
+            id: string;
+            wallet: string;
+        }
+
         type staffType = {
             email: string;
             tel?: number | null;
@@ -195,7 +200,8 @@ export declare namespace api {
             money: number;
             spended: number;
             tariff: staffTariffType;
-            profile: staffProfileType
+            profile: staffProfileType;
+            owner?: ownerType
         }
 
         type staffListType = Record<string, api.consultation.staffType>;
@@ -224,6 +230,16 @@ export declare namespace api {
             type response = {
                 staff: staffListType;
                 commonCount: number;
+            }
+        }
+
+        namespace addStaff {
+            type request = {
+                newStaff: api.consultation.staffType
+            }
+
+            type response = {
+                staff: staffListType;
             }
         }
 
