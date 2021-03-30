@@ -223,6 +223,7 @@ export declare namespace api {
         }
 
         type tariffProfitType = {
+            total: number;
             receiving: number;
         }
 
@@ -240,7 +241,8 @@ export declare namespace api {
             }
 
             type response = {
-                staff: api.consultation.staffType
+                staff: api.consultation.staffType;
+                moneyThisMonth: staffMoney
             }
         }
 
@@ -252,7 +254,7 @@ export declare namespace api {
             type response = {
                 staff: staffListType;
                 commonCount: number;
-                moneyThisMonth: tariffProfitType
+                moneyThisMonth: staffMoney
             }
         }
 
