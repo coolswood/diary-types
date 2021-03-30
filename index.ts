@@ -222,6 +222,28 @@ export declare namespace api {
             }
         }
 
+        type tariffProfitType = {
+            receiving: number;
+        }
+
+        type calendarMoneyStaff = Record<string, tariffProfitType>
+
+        type staffMoney = {
+            total: number;
+            calendar: calendarMoneyStaff
+        }
+
+        namespace addMoney {
+            type request = {
+                staffId: string,
+                addedMoney: number
+            }
+
+            type response = {
+                staff: api.consultation.staffType
+            }
+        }
+
         namespace getAllStaff {
             type request = {
                 ownerEmail?: string;
@@ -230,12 +252,14 @@ export declare namespace api {
             type response = {
                 staff: staffListType;
                 commonCount: number;
+                moneyThisMonth: tariffProfitType
             }
         }
 
         namespace addStaff {
             type request = {
-                newStaff: api.consultation.staffType
+                newStaff: api.consultation.staffType;
+                ownerEmail?: string;
             }
 
             type response = {
