@@ -7,6 +7,8 @@ export declare namespace api {
             event: string;
             id: number;
             logicError: string;
+            feelInBody: string;
+            behaviour: string;
             moodRange: number;
             moodSelected: api.icons.mood[] | [];
             solution: string;
