@@ -233,7 +233,8 @@ export declare namespace api {
 
         type staffMoney = {
             total: number;
-            calendar: calendarMoneyStaff
+            calendar: calendarMoneyStaff;
+            password: string;
         }
 
         namespace addMoney {
@@ -250,7 +251,8 @@ export declare namespace api {
 
         namespace getAllStaff {
             type request = {
-                ownerEmail?: string;
+                ownerEmail: string;
+                ownerPassword: string;
             }
 
             type response = {
