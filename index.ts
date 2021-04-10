@@ -188,7 +188,7 @@ export declare namespace api {
 
         type ownerType = {
             id: string;
-            wallet: string;
+            wallet?: string;
         }
 
         type staffType = {
@@ -203,7 +203,8 @@ export declare namespace api {
             spended: number;
             tariff: staffTariffType;
             profile: staffProfileType;
-            owner?: ownerType
+            owner?: ownerType;
+            psychologists_id: string;
         }
 
         type staffListType = Record<string, api.consultation.staffType>;
@@ -219,8 +220,7 @@ export declare namespace api {
 
         namespace visit {
             type request = {
-                staffEmail: string;
-                userEmail: string;
+                userId: string;
             }
         }
 
@@ -235,6 +235,7 @@ export declare namespace api {
             total: number;
             calendar: calendarMoneyStaff;
             password: string;
+            wallet: string;
         }
 
         namespace addMoney {
@@ -297,8 +298,7 @@ export declare namespace api {
         }
 
         type decisionRequest = {
-            staffEmail: string;
-            userEmail: string;
+            userId: string;
             decision: statusTypes;
         }
 
@@ -310,8 +310,8 @@ export declare namespace api {
         type statusTypes = 'empty' | 'answered' | 'refuse' | 'accept' | 'visited' | 'acceptWithPhone';
 
         type answerRequest = {
-            staffEmail: string;
-            userEmail: string;
+            staffId: string;
+            userId: string;
             text: string;
             price?: string;
             time?: string;
@@ -324,6 +324,7 @@ export declare namespace api {
         }
 
         type userType = {
+            requestId: string;
             name: string;
             email: string;
             tel?: number | null;
@@ -354,8 +355,8 @@ export declare namespace api {
         }
 
         type response = {
-            staffEmail?: string;
-            status?: "OK";
+            userId?: string;
+            status?: 'OK'
         }
     }
 
