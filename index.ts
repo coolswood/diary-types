@@ -218,6 +218,44 @@ export declare namespace api {
             text: any;
         }
 
+        namespace consultationAvailable {
+            type response = {
+                available: boolean
+            }
+        }
+
+        namespace takeMoreTickets {
+            type request = {
+                staffEmail: string,
+                count: number
+            }
+
+            type response = {
+                dialogs: Record<string, api.consultation.userType>,
+                staff: api.consultation.staffType
+            }
+        }
+
+        namespace getStaff {
+            type request = {
+                staffEmail: string
+            }
+
+            type response = {
+                staff: api.consultation.staffType
+            }
+        }
+
+        namespace consultationPsy {
+            type request = {
+                psyId: string
+            }
+
+            type response = {
+                dialogs: Record<string, api.consultation.userType>
+            }
+        }
+
         namespace visit {
             type request = {
                 userId: string;
@@ -274,7 +312,21 @@ export declare namespace api {
             }
         }
 
+        namespace answer {
+            type request = {
+                staffId: string,
+                userId: string,
+                text: string,
+                price?: string,
+                time: string
+            }
+        }
+
         namespace getAnswer {
+            type request = {
+                userId: string,
+            }
+
             type response = {
                 answer: api.consultation.userType['answer'],
                 photo: staffProfileType["photo"],
@@ -286,9 +338,8 @@ export declare namespace api {
 
         namespace sendPhone {
             type request = {
-                staffEmail: string;
-                userEmail: string;
-                tel: number;
+                userId: string;
+                tel: string;
                 social: social
             }
         }
@@ -302,20 +353,17 @@ export declare namespace api {
             decision: statusTypes;
         }
 
-        type checkAnswerResponse = {
-            hasAnswer: boolean;
-            staffEmail?: string;
+        namespace checkAnswer {
+            type request = {
+                userId: string;
+            }
+
+            type response = {
+                hasAnswer: boolean;
+            }
         }
 
         type statusTypes = 'empty' | 'answered' | 'refuse' | 'accept' | 'visited' | 'acceptWithPhone';
-
-        type answerRequest = {
-            staffId: string;
-            userId: string;
-            text: string;
-            price?: string;
-            time?: string;
-        }
 
         type answerTypes = {
             text: string;
@@ -327,12 +375,12 @@ export declare namespace api {
             requestId: string;
             name: string;
             email: string;
-            tel?: number | null;
-            social?: social | null;
+            tel?: string;
+            social?: social;
             token?: string;
             age: number;
             status: statusTypes;
-            startDate?: number;
+            startDate?: string;
             question: {
                 difficulties: string;
                 help: string;
