@@ -366,7 +366,7 @@ export declare namespace api {
         type statusTypes = 'empty' | 'answered' | 'refuse' | 'accept' | 'visited' | 'acceptWithPhone';
 
         type answerTypes = {
-            text: string;
+            text: string | null;
             price?: string;
             time?: string;
         }
@@ -388,7 +388,7 @@ export declare namespace api {
                 condition: string;
                 example: string;
             };
-            answer?: answerTypes;
+            answer: answerTypes;
         };
 
         type request = {
