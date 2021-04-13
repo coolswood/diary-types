@@ -205,7 +205,7 @@ export declare namespace api {
             psychologists_id: string;
         }
 
-        type staffListType = Record<string, api.consultation.staffType>;
+        type staffListType = api.consultation.staffType;
 
         type social = 'WhatsApp' | 'Telegram' | 'Viber' | 'SMS сообщение';
 
@@ -293,7 +293,7 @@ export declare namespace api {
             }
 
             type response = {
-                staff: staffListType;
+                staff: staffListType[];
                 commonCount: number;
                 moneyThisMonth: staffMoney
             }
