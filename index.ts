@@ -244,6 +244,12 @@ export declare namespace api {
             }
         }
 
+        namespace removeStaff {
+            type request = {
+                staffId: string
+            }
+        }
+
         namespace consultationPsy {
             type request = {
                 psyId: string
@@ -278,11 +284,6 @@ export declare namespace api {
             type request = {
                 staffId: string,
                 addedMoney: number
-            }
-
-            type response = {
-                staff: api.consultation.staffType;
-                moneyThisMonth: staffMoney
             }
         }
 
