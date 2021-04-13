@@ -182,7 +182,7 @@ export declare namespace api {
             text: string
         }
 
-        type staffTariffType = "1"
+        type staffTariffType = "free" | "receiving"
 
         type ownerType = {
             id: string;
@@ -236,7 +236,7 @@ export declare namespace api {
 
         namespace getStaff {
             type request = {
-                staffEmail: string
+                staffEmail: string;
             }
 
             type response = {
@@ -331,6 +331,14 @@ export declare namespace api {
                 name: staffProfileType["name"],
                 special: staffProfileType["special"],
                 text: staffProfileType["text"],
+            }
+        }
+
+        namespace updateStaff {
+            type request = {
+                staffId: string;
+                dailyLimit: number,
+                tariff: staffTariffType
             }
         }
 
