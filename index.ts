@@ -182,9 +182,7 @@ export declare namespace api {
             text: string
         }
 
-        type staffTariffType = {
-            receiving: number
-        }
+        type staffTariffType = "1"
 
         type ownerType = {
             id: string;
