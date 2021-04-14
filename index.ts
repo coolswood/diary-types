@@ -1,3 +1,7 @@
+export declare namespace common {
+    type languages = 'ru' | 'en'
+}
+
 export declare namespace api {
     namespace automaticMinds {
         type diaryValue = {
@@ -302,8 +306,11 @@ export declare namespace api {
 
         namespace addStaff {
             type request = {
-                newStaff: api.consultation.staffType;
-                ownerEmail?: string;
+                newStaff: {
+                    email: string;
+                    isWoman: boolean;
+                };
+                ownerEmail: string;
             }
 
             type response = {
@@ -422,6 +429,7 @@ export declare namespace api {
         namespace timer {
             type request = {
                 type: testsNamesTypes;
+                lang: common.languages
             }
         }
     }
