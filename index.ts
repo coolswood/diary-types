@@ -195,6 +195,7 @@ export declare namespace api {
 
         type staffType = {
             email: string;
+            password: string;
             tel?: number | null;
             consultations: number;
             dailyLimit: number;
@@ -246,6 +247,10 @@ export declare namespace api {
             type response = {
                 staff: api.consultation.staffType
             }
+
+            type error = {
+                redirectUrl: string;
+            }
         }
 
         namespace removeStaff {
@@ -256,11 +261,15 @@ export declare namespace api {
 
         namespace consultationPsy {
             type request = {
-                psyId: string
+                psyId?: string
             }
 
             type response = {
-                dialogs: Record<string, api.consultation.userType>
+                dialogs: Record<string, api.consultation.userType>,
+            }
+
+            type error = {
+                redirectUrl: string;
             }
         }
 
@@ -292,15 +301,14 @@ export declare namespace api {
         }
 
         namespace getAllStaff {
-            type request = {
-                ownerEmail: string;
-                ownerPassword: string;
-            }
-
             type response = {
                 staff: staffListType[];
                 commonCount: number;
                 moneyThisMonth: staffMoney
+            }
+
+            type error = {
+                redirectUrl: string
             }
         }
 
@@ -374,6 +382,17 @@ export declare namespace api {
 
             type response = {
                 hasAnswer: boolean;
+            }
+        }
+
+        namespace auth {
+            type request = {
+                email: string;
+                password: string;
+            }
+
+            type response = {
+                redirectUrl: string;
             }
         }
 
