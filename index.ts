@@ -229,7 +229,6 @@ export declare namespace api {
 
         namespace takeMoreTickets {
             type request = {
-                staffEmail: string,
                 count: number
             }
 
@@ -241,7 +240,7 @@ export declare namespace api {
 
         namespace getStaff {
             type request = {
-                staffEmail: string;
+                staffEmail?: string;
             }
 
             type response = {
@@ -318,7 +317,6 @@ export declare namespace api {
                     email: string;
                     isWoman: boolean;
                 };
-                ownerEmail: string;
             }
 
             type response = {
@@ -367,7 +365,7 @@ export declare namespace api {
         }
 
         namespace updateStaffProfile {
-            type request = staffProfileType & { staffEmail: string }
+            type request = staffProfileType & {emailStaff: string}
         }
 
         type decisionRequest = {
