@@ -44,7 +44,7 @@ export declare namespace api {
     }
 
     namespace psychologyTests {
-        type bdiValue = {
+        type defaultValue = {
             date: string | null;
             id: number;
             result: number[];
