@@ -2,6 +2,51 @@ export declare namespace common {
     type languages = 'ru' | 'en'
 }
 
+export declare namespace reactNative {
+
+    namespace onMessage {
+        type reviewPopupType = {
+            eventName: 'reviewPopup';
+        }
+
+        type loadedType = {
+            eventName: 'loaded';
+        }
+
+        type paymentType = {
+            eventName: 'payment';
+            productId: string;
+        }
+
+        type cancelTimerType = {
+            eventName: 'cancelTimer';
+            id: number;
+        }
+
+        type setTimerType = {
+            eventName: 'setTimer';
+            title: string;
+            message: string;
+            dateMilliseconds: number;
+            id: number;
+        }
+    }
+
+    namespace injectedWindowData {
+        type products = '1' | '2' | '3' | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14";
+
+        type productsContract = {
+            amount: string;
+            product_id: products;
+        }
+
+        type productsStatus = boolean;
+
+        type langs = 'ru' | 'en';
+    }
+
+}
+
 export declare namespace api {
     namespace automaticMinds {
         type diaryValue = {
@@ -88,7 +133,7 @@ export declare namespace api {
             | 'loneliness';
     }
 
-    type alldata = api.automaticMinds.diaryValue & api.psychologyTests.hduValue & api.psychologyTests.bdiValue & api.automaticMinds.compareValue
+    type alldata = api.automaticMinds.diaryValue & api.psychologyTests.hduValue & api.psychologyTests.defaultValue & api.automaticMinds.compareValue
 
     type authData = {
         login: string;
