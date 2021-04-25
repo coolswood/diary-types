@@ -130,6 +130,7 @@ export declare namespace api {
             | 'shame'
             | 'insult'
             | 'guilt'
+            | 'misunderstanding'
             | 'loneliness';
     }
 
@@ -278,7 +279,7 @@ export declare namespace api {
             }
 
             type response = {
-                dialogs: Record<string, api.consultation.userType>,
+                dialogs: api.consultation.userType[],
                 staff: api.consultation.staffType
             }
         }
@@ -309,7 +310,7 @@ export declare namespace api {
             }
 
             type response = {
-                dialogs: Record<string, api.consultation.userType>,
+                dialogs: api.consultation.userType[],
             }
 
             type error = {
