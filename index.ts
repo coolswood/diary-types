@@ -501,12 +501,13 @@ export declare namespace api {
         type donat = {
             name: string,
             money: string,
-            message: string
+            message: string,
+            language: common.languages
         }
 
         namespace donationGet {
             type response = {
-                donations: donat[]
+                donation: donat[]
             }
         }
 
@@ -515,7 +516,7 @@ export declare namespace api {
             type request = donat;
 
             type response = {
-                donations: donat[]
+                status: 'OK'
             }
         }
     }
