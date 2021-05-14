@@ -102,6 +102,16 @@ export declare namespace api {
             result: number[];
             steps: number[];
         };
+
+        type burnOutValue = {
+            date: string | null;
+            id: number;
+            steps: number[];
+            burnOutTotal: number;
+            piScore: number;
+            pmScore: number;
+            loScore: number;
+        };
     }
 
     namespace icons {
