@@ -233,6 +233,15 @@ export declare namespace api {
         }
     }
 
+    namespace consultationPartners {
+        namespace visit {
+            type request = {
+                name: string;
+                age: number;
+            }
+        }
+    }
+
     namespace consultation {
 
         type staffProfileType = {
