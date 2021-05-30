@@ -240,6 +240,18 @@ export declare namespace api {
                 age: number;
             }
         }
+
+        namespace getHistory {
+            type response = {
+                common: number;
+                repeatVisits: number;
+                history: {
+                    name: string;
+                    age: number;
+                    time: string;
+                }[]
+            }
+        }
     }
 
     namespace consultation {
@@ -513,6 +525,13 @@ export declare namespace api {
                 type: testsNamesTypes;
                 lang: common.languages
             }
+        }
+    }
+
+    namespace feedback {
+        type feedbackError = {
+            text: string;
+            type: 'error'
         }
     }
 
