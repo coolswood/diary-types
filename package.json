@@ -2,7 +2,7 @@
   "name": "diary-mind-health",
   "author": "coolswood",
   "private": false,
-  "version": "1.7.24",
+  "version": "1.7.30",
   "description": "diary",
   "main": "index.js",
   "scripts": {
