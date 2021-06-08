@@ -490,11 +490,8 @@ export declare namespace api {
             status: statusTypes;
             startDate?: string;
             question: {
-                difficulties: string;
-                help: string;
                 reason: string;
                 condition: string;
-                example: string;
             };
             answer: answerTypes;
         };
@@ -503,11 +500,8 @@ export declare namespace api {
             name: string,
             email: string,
             age: number,
-            difficulties: string,
-            help: string,
             reason: string,
             condition: string,
-            example: string,
         }
 
         type response = {
