@@ -254,6 +254,58 @@ export declare namespace api {
         }
     }
 
+    namespace feed {
+        type feedItem = {
+            id: string;
+            title: string;
+            short: string;
+            text: string;
+            author: string;
+            authorLink: string;
+            likes: number;
+        }
+
+        namespace feedList {
+
+            type feedItemList = {
+                id: string;
+                title: string;
+                short: string;
+                author: string;
+                likes: number;
+            }
+
+            type response = {
+                feed: feedItemList[]
+            }
+        }
+
+        namespace feedItem {
+
+            type item = {
+                id: string;
+                title: string;
+                short: string;
+                text: string;
+                author: string;
+                authorLink: string;
+            }
+
+            type response = item
+        }
+
+        namespace feedLike {
+            type request = {
+                likes: number;
+            }
+
+            type response = {
+                id: string;
+                type: 'incr' | 'decr'
+            }
+        }
+    }
+
     namespace consultation {
 
         type staffProfileType = {
@@ -490,18 +542,17 @@ export declare namespace api {
             status: statusTypes;
             startDate?: string;
             question: {
+                help: string;
                 reason: string;
-                condition: string;
             };
             answer: answerTypes;
         };
 
         type request = {
             name: string,
-            email: string,
             age: number,
+            help: string,
             reason: string,
-            condition: string,
         }
 
         type response = {
