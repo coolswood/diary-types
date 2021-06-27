@@ -1,3 +1,5 @@
+import {feedSearch} from "components/feed";
+
 export declare namespace common {
     type languages = 'ru' | 'en'
 }
@@ -240,6 +242,80 @@ export declare namespace api {
                 age: number;
             }
         }
+
+        namespace getHistory {
+            type response = {
+                common: number;
+                repeatVisits: number;
+                history: {
+                    name: string;
+                    age: number;
+                    time: string;
+                }[]
+            }
+        }
+    }
+
+    namespace feed {
+        type feedItem = {
+            id: string;
+            title: string;
+            short: string;
+            text: string;
+            author: string;
+            authorLink: string;
+            likes: number;
+        }
+
+        namespace feedList {
+
+            type feedItemList = {
+                id: string;
+                title: string;
+                short: string;
+                author: string;
+                likes: number;
+            }
+
+            type response = {
+                feed: feedItemList[]
+            }
+        }
+
+        namespace feedItem {
+
+            type item = {
+                id: string;
+                title: string;
+                short: string;
+                text: string;
+                author: string;
+                authorLink: string;
+            }
+
+            type request = { id: string }
+
+            type response = item
+        }
+
+        namespace feedLike {
+            type request = {
+                likes: number;
+            }
+
+            type response = {
+                id: string;
+                type: 'incr' | 'decr'
+            }
+        }
+
+        namespace feedSearch {
+            type request = {
+                text: string
+            }
+
+            type response = api.feed.feedList.feedItemList[]
+        }
     }
 
     namespace consultation {
@@ -478,24 +554,17 @@ export declare namespace api {
             status: statusTypes;
             startDate?: string;
             question: {
-                difficulties: string;
                 help: string;
                 reason: string;
-                condition: string;
-                example: string;
             };
             answer: answerTypes;
         };
 
         type request = {
             name: string,
-            email: string,
             age: number,
-            difficulties: string,
             help: string,
             reason: string,
-            condition: string,
-            example: string,
         }
 
         type response = {
@@ -513,6 +582,13 @@ export declare namespace api {
                 type: testsNamesTypes;
                 lang: common.languages
             }
+        }
+    }
+
+    namespace feedback {
+        type feedbackError = {
+            text: string;
+            type: 'error'
         }
     }
 
