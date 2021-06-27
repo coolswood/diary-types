@@ -1,5 +1,3 @@
-import {feedSearch} from "components/feed";
-
 export declare namespace common {
     type languages = 'ru' | 'en'
 }
