@@ -275,6 +275,8 @@ export declare namespace api {
                 likes: number;
             }
 
+            type request = { language: common.languages }
+
             type response = {
                 feed: feedItemList[]
             }
