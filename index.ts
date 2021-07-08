@@ -298,6 +298,23 @@ export declare namespace api {
             type response = item
         }
 
+        namespace feedAdd {
+
+            type item = {
+                title: string;
+                short: string;
+                text: string;
+                author: string;
+                authorLink: string;
+            }
+
+            type request = item;
+
+            type response = {
+                status: 'OK'
+            }
+        }
+
         namespace feedLike {
             type request = {
                 likes: number;
