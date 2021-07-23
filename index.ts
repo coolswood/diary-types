@@ -275,7 +275,7 @@ export declare namespace api {
                 likes: number;
             }
 
-            type request = { language: common.languages }
+            type request = { language: common.languages; offset: number }
 
             type response = {
                 feed: feedItemList[]
@@ -328,7 +328,8 @@ export declare namespace api {
 
         namespace feedSearch {
             type request = {
-                text: string
+                text: string;
+                language: common.languages
             }
 
             type response = api.feed.feedList.feedItemList[]
