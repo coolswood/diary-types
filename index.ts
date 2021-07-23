@@ -291,6 +291,7 @@ export declare namespace api {
                 text: string;
                 author: string;
                 authorLink: string;
+                likes: number;
             }
 
             type request = { id: string }
