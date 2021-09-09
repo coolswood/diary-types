@@ -30,6 +30,11 @@ export declare namespace reactNative {
             dateMilliseconds: number;
             id: number;
         }
+
+        type diaryMigrationsType = {
+            eventName: 'diaryMigrations';
+            data: api.automaticMinds.diaryValue[]
+        }
     }
 
     namespace injectedWindowData {
