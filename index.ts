@@ -1,5 +1,6 @@
 export declare namespace common {
     type languages = 'ru' | 'en'
+    type dbName = 'diary'
 }
 
 export declare namespace reactNative {
@@ -34,6 +35,18 @@ export declare namespace reactNative {
         type diaryMigrationsType = {
             eventName: 'diaryMigrations';
             data: api.automaticMinds.diaryValue[]
+        }
+
+        type dbEventAddOrUpdateType = {
+            eventName: 'dbEventAddOrUpdate';
+            dbName: common.dbName;
+            data: api.automaticMinds.diaryValue;
+        }
+
+        type dbEventDeleteType = {
+            eventName: 'dbEventDelete';
+            dbName: common.dbName;
+            id: string;
         }
     }
 
