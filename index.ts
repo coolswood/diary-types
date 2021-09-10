@@ -5,9 +5,19 @@ export declare namespace common {
 
 export declare namespace reactNative {
 
+    type getDataType = 'diaryAll';
+
     namespace onMessage {
 
-        type onMessageCommon = reviewPopupType | loadedType | paymentType | cancelTimerType | setTimerType | diaryMigrationsType | dbEventAddOrUpdateType | dbEventDeleteType
+        type onMessageCommon = reviewPopupType 
+        | loadedType 
+        | paymentType 
+        | cancelTimerType 
+        | setTimerType 
+        | diaryMigrationsType 
+        | dbEventAddOrUpdateType 
+        | dbEventDeleteType 
+        | getRNdataType
 
         type reviewPopupType = {
             eventName: 'reviewPopup';
@@ -51,6 +61,11 @@ export declare namespace reactNative {
             dbName: common.dbName;
             id: string;
         }
+
+        type getRNdataType = {
+            eventName: 'getRNdata';
+            type: getDataType
+        }
     }
 
     namespace injectedWindowData {
@@ -68,6 +83,10 @@ export declare namespace reactNative {
         type communicationData = {
             event: 'productsStatus';
             value: boolean;
+        } |
+        {
+            event: 'diaryAll';
+            value: api.automaticMinds.diaryValue[];
         }
     }
 
