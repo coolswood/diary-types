@@ -6,6 +6,9 @@ export declare namespace common {
 export declare namespace reactNative {
 
     namespace onMessage {
+
+        type onMessageCommon = reviewPopupType | loadedType | paymentType | cancelTimerType | setTimerType | diaryMigrationsType | dbEventAddOrUpdateType | dbEventDeleteType
+
         type reviewPopupType = {
             eventName: 'reviewPopup';
         }
@@ -60,7 +63,12 @@ export declare namespace reactNative {
 
         type productsStatus = boolean;
 
-        type langs = 'ru' | 'en';
+        type langs = common.languages;
+
+        type communicationData = {
+            event: 'productsStatus';
+            value: boolean;
+        }
     }
 
 }
