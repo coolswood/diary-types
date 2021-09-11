@@ -1,11 +1,11 @@
 export declare namespace common {
     type languages = 'ru' | 'en'
-    type dbName = 'diary'
+    type dbName = 'diary' | 'bdi' | 'hdu' | 'worry' | 'burnOut'
 }
 
 export declare namespace reactNative {
 
-    type getDataType = 'diaryAll';
+    type getDataType = 'diaryAll' | 'bdiAll' | 'hduAll' | 'worryAll' | 'burnOutAll';
 
     namespace onMessage {
 
@@ -87,6 +87,22 @@ export declare namespace reactNative {
         {
             event: 'diaryAll';
             value: api.automaticMinds.diaryValue[];
+        } |
+        {
+            event: 'bdiAll';
+            value: api.psychologyTests.defaultValue[];
+        } |
+        {
+            event: 'worryAll';
+            value: api.psychologyTests.defaultValue[];
+        } |
+        {
+            event: 'hduAll';
+            value: api.psychologyTests.hduValue[];
+        } |
+        {
+            event: 'burnOutAll';
+            value: api.psychologyTests.burnOutValue[];
         }
     }
 
