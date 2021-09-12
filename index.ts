@@ -1,11 +1,24 @@
 export declare namespace common {
     type languages = 'ru' | 'en'
-    type dbName = 'diary' | 'bdi' | 'hdu' | 'worry' | 'burnOut'
+    type dbName = keyof reactNative.storesDataRecord
 }
 
 export declare namespace reactNative {
 
     type getDataType = 'diaryAll' | 'bdiAll' | 'hduAll' | 'worryAll' | 'burnOutAll';
+
+    export type storesDataTestRecord = {
+        bdi: api.psychologyTests.defaultValue;
+        worry: api.psychologyTests.defaultValue;
+        hdu: api.psychologyTests.hduValue;
+        burnOut: api.psychologyTests.burnOutValue;
+      };
+
+      export type storesDataExercisesRecord = {
+        diary: api.automaticMinds.diaryValue;
+      };
+
+      export type storesDataRecord = storesDataTestRecord & storesDataExercisesRecord;
 
     namespace onMessage {
 
@@ -81,28 +94,12 @@ export declare namespace reactNative {
         type langs = common.languages;
 
         type communicationData = {
-            event: 'productsStatus';
-            value: boolean;
-        } |
-        {
-            event: 'diaryAll';
-            value: api.automaticMinds.diaryValue[];
-        } |
-        {
-            event: 'bdiAll';
-            value: api.psychologyTests.defaultValue[];
-        } |
-        {
-            event: 'worryAll';
-            value: api.psychologyTests.defaultValue[];
-        } |
-        {
-            event: 'hduAll';
-            value: api.psychologyTests.hduValue[];
-        } |
-        {
-            event: 'burnOutAll';
-            value: api.psychologyTests.burnOutValue[];
+            'productsStatus': boolean;
+            'diaryAll': api.automaticMinds.diaryValue[];
+            'bdiAll': api.psychologyTests.defaultValue[];
+            'worryAll': api.psychologyTests.defaultValue[];
+            'hduAll': api.psychologyTests.hduValue[];
+            'burnOutAll': api.psychologyTests.burnOutValue[]
         }
     }
 
