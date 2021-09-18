@@ -5,6 +5,8 @@ export declare namespace common {
 
 export declare namespace reactNative {
 
+    type Page = 'WebView' | 'Diary';
+
     type getDataType = 'diaryAll' | 'bdiAll' | 'hduAll' | 'worryAll' | 'burnOutAll';
 
     export type storesDataTestRecord = {
@@ -31,6 +33,7 @@ export declare namespace reactNative {
         | dbEventAddOrUpdateType 
         | dbEventDeleteType 
         | getRNdataType
+        | routeType
 
         type reviewPopupType = {
             eventName: 'reviewPopup';
@@ -79,6 +82,11 @@ export declare namespace reactNative {
             eventName: 'getRNdata';
             type: getDataType
         }
+
+        type routeType = {
+            eventName: 'route';
+            page: Page
+        }
     }
 
     namespace injectedWindowData {
@@ -95,6 +103,7 @@ export declare namespace reactNative {
 
         type communicationData = {
             'productsStatus': boolean;
+            'safeArea': number;
             'diaryAll': api.automaticMinds.diaryValue[];
             'bdiAll': api.psychologyTests.defaultValue[];
             'worryAll': api.psychologyTests.defaultValue[];
