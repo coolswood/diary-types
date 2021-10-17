@@ -5,7 +5,7 @@ export declare namespace common {
 
 export declare namespace reactNative {
 
-    type Page = 'WebView' | 'Diary';
+    type Page = 'WebView' | 'Diary' | 'DiaryFirstStep' | 'DiarySecondStep' | 'DiaryThirdStep' | 'DiaryFourthStep' | 'DiaryFifthStep' | 'DiarySixthStep';
 
     type getDataType = 'diaryAll' | 'bdiAll' | 'hduAll' | 'worryAll' | 'burnOutAll';
 
@@ -22,16 +22,25 @@ export declare namespace reactNative {
 
       export type storesDataRecord = storesDataTestRecord & storesDataExercisesRecord;
 
+    namespace messageToWebView {
+        type messageToWebViewCommon = diaryAddNewRecordType;
+
+        type diaryAddNewRecordType = {
+            eventName: 'diaryNewRecord';
+            recordsCount: number;
+        }
+    }
+
     namespace onMessage {
 
-        type onMessageCommon = reviewPopupType 
-        | loadedType 
-        | paymentType 
-        | cancelTimerType 
-        | setTimerType 
-        | diaryMigrationsType 
-        | dbEventAddOrUpdateType 
-        | dbEventDeleteType 
+        type onMessageCommon = reviewPopupType
+        | loadedType
+        | paymentType
+        | cancelTimerType
+        | setTimerType
+        | diaryMigrationsType
+        | dbEventAddOrUpdateType
+        | dbEventDeleteType
         | getRNdataType
         | routeType
 
