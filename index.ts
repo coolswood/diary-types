@@ -14,13 +14,13 @@ export declare namespace reactNative {
         worry: api.psychologyTests.defaultValue;
         hdu: api.psychologyTests.hduValue;
         burnOut: api.psychologyTests.burnOutValue;
-      };
+    };
 
-      export type storesDataExercisesRecord = {
+    export type storesDataExercisesRecord = {
         diary: api.automaticMinds.diaryValue;
-      };
+    };
 
-      export type storesDataRecord = storesDataTestRecord & storesDataExercisesRecord;
+    export type storesDataRecord = storesDataTestRecord & storesDataExercisesRecord;
 
     namespace messageToWebView {
         type messageToWebViewCommon = diaryAddNewRecordType;
@@ -34,15 +34,16 @@ export declare namespace reactNative {
     namespace onMessage {
 
         type onMessageCommon = reviewPopupType
-        | loadedType
-        | paymentType
-        | cancelTimerType
-        | setTimerType
-        | diaryMigrationsType
-        | dbEventAddOrUpdateType
-        | dbEventDeleteType
-        | getRNdataType
-        | routeType
+            | loadedType
+            | paymentType
+            | cancelTimerType
+            | setTimerType
+            | diaryMigrationsType
+            | dbEventAddOrUpdateType
+            | dbEventDeleteType
+            | getRNdataType
+            | webViewConsoleType
+            | routeType
 
         type reviewPopupType = {
             eventName: 'reviewPopup';
@@ -60,6 +61,11 @@ export declare namespace reactNative {
         type cancelTimerType = {
             eventName: 'cancelTimer';
             id: number;
+        }
+
+        type webViewConsoleType = {
+            eventName: 'webViewConsole';
+            event: string;
         }
 
         type setTimerType = {
