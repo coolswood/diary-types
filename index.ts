@@ -43,6 +43,7 @@ export declare namespace reactNative {
             | dbEventDeleteType
             | getRNdataType
             | webViewConsoleType
+            | changeLangType
             | routeType
 
         type reviewPopupType = {
@@ -56,6 +57,11 @@ export declare namespace reactNative {
         type paymentType = {
             eventName: 'payment';
             productId: string;
+        }
+
+        type changeLangType = {
+            eventName: 'changeLang';
+            lang: common.languages;
         }
 
         type cancelTimerType = {
