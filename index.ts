@@ -38,7 +38,7 @@ export declare namespace reactNative {
             | paymentType
             | cancelTimerType
             | setTimerType
-            | diaryMigrationsType
+            | testsMigrationsType
             | dbEventAddOrUpdateType
             | dbEventDeleteType
             | getRNdataType
@@ -82,9 +82,14 @@ export declare namespace reactNative {
             id: number;
         }
 
-        type diaryMigrationsType = {
-            eventName: 'diaryMigrations';
-            data: api.automaticMinds.diaryValue[]
+        type testsMigrationsType = {
+            eventName: 'testsMigrations';
+            data: {
+                bdi: api.psychologyTests.defaultValue[],
+                hdu: api.psychologyTests.hduValue[],
+                worry: api.psychologyTests.defaultValue[],
+                burnOut: api.psychologyTests.burnOutValue[]
+            }
         }
 
         type dbEventAddOrUpdateType = {
