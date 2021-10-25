@@ -7,7 +7,7 @@ export declare namespace reactNative {
 
     type Page = 'WebView' | 'Diary' | 'DiaryFirstStep' | 'DiarySecondStep' | 'DiaryThirdStep' | 'DiaryFourthStep' | 'DiaryFifthStep' | 'DiarySixthStep';
 
-    type getDataType = 'diaryAll' | 'bdiAll' | 'hduAll' | 'worryAll' | 'burnOutAll';
+    type getDataType = 'diaryAll' | 'bdiAll' | 'hduAll' | 'worryAll' | 'burnOutAll' | 'gratitudeAll';
 
     export type storesDataTestRecord = {
         bdi: api.psychologyTests.defaultValue;
@@ -18,6 +18,7 @@ export declare namespace reactNative {
 
     export type storesDataExercisesRecord = {
         diary: api.automaticMinds.diaryValue;
+        gratitude: api.grattitude.gratitudeItemType;
     };
 
     export type storesDataRecord = storesDataTestRecord & storesDataExercisesRecord;
@@ -42,6 +43,7 @@ export declare namespace reactNative {
             | dbEventAddOrUpdateType
             | dbEventDeleteType
             | getRNdataType
+            | gratitudeMigrationsType
             | webViewConsoleType
             | changeLangType
             | routeType
@@ -85,11 +87,16 @@ export declare namespace reactNative {
         type testsMigrationsType = {
             eventName: 'testsMigrations';
             data: {
-                bdi: api.psychologyTests.defaultValue[],
-                hdu: api.psychologyTests.hduValue[],
-                worry: api.psychologyTests.defaultValue[],
-                burnOut: api.psychologyTests.burnOutValue[]
+                bdi?: api.psychologyTests.defaultValue[],
+                hdu?: api.psychologyTests.hduValue[],
+                worry?: api.psychologyTests.defaultValue[],
+                burnOut?: api.psychologyTests.burnOutValue[]
             }
+        }
+
+        type gratitudeMigrationsType = {
+            eventName: 'gratitudeMigrations';
+            data: api.grattitude.gratitudeItemType[]
         }
 
         type dbEventAddOrUpdateType = {
@@ -132,15 +139,52 @@ export declare namespace reactNative {
             'safeArea': number;
             'diaryAll': api.automaticMinds.diaryValue[];
             'bdiAll': api.psychologyTests.defaultValue[];
+            'gratitudeAll': api.grattitude.gratitudeItemType[];
             'worryAll': api.psychologyTests.defaultValue[];
             'hduAll': api.psychologyTests.hduValue[];
-            'burnOutAll': api.psychologyTests.burnOutValue[]
+            'burnOutAll': api.psychologyTests.burnOutValue[],
         }
     }
 
 }
 
 export declare namespace api {
+    namespace grattitude {
+        type directType = 'self' | 'other' | 'universe';
+
+        type recordsType = {
+            dt: number;
+            text: string;
+            direct: directType;
+        };
+
+        type ScoreTypes = {
+            start: number;
+            finish: null | number;
+        };
+
+        type gratitudeItemType = {
+            id: string;
+            score: ScoreTypes;
+            records: recordsType[];
+        };
+
+        type gratitudeItemNewType = {
+            dt: number;
+            date: string;
+            year: number;
+            score: ScoreTypes;
+            records: recordsType[];
+        };
+
+        type gratitudeItemSelectedType = {
+            date: string;
+            start: null | false | number;
+            finish: null | number;
+            records: recordsType[];
+        };
+    }
+
     namespace automaticMinds {
         type diaryValue = {
             conclusion: string;
