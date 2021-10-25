@@ -7,7 +7,7 @@ export declare namespace reactNative {
 
     type Page = 'WebView' | 'Diary' | 'DiaryFirstStep' | 'DiarySecondStep' | 'DiaryThirdStep' | 'DiaryFourthStep' | 'DiaryFifthStep' | 'DiarySixthStep';
 
-    type getDataType = 'diaryAll' | 'bdiAll' | 'hduAll' | 'worryAll' | 'burnOutAll' | 'gratitudeAll';
+    type getDataType = 'diaryAll' | 'bdiAll' | 'hduAll' | 'worryAll' | 'burnOutAll' | 'gratitudeAll' | 'compareAll';
 
     export type storesDataTestRecord = {
         bdi: api.psychologyTests.defaultValue;
@@ -19,6 +19,7 @@ export declare namespace reactNative {
     export type storesDataExercisesRecord = {
         diary: api.automaticMinds.diaryValue;
         gratitude: api.grattitude.gratitudeItemType;
+        compare: api.automaticMinds.compareValue;
     };
 
     export type storesDataRecord = storesDataTestRecord & storesDataExercisesRecord;
@@ -44,6 +45,7 @@ export declare namespace reactNative {
             | dbEventDeleteType
             | getRNdataType
             | gratitudeMigrationsType
+            | compareMigrationsType
             | webViewConsoleType
             | changeLangType
             | routeType
@@ -99,6 +101,11 @@ export declare namespace reactNative {
             data: api.grattitude.gratitudeItemType[]
         }
 
+        type compareMigrationsType = {
+            eventName: 'compareMigrations';
+            data: api.automaticMinds.compareValue[]
+        }
+
         type dbEventAddOrUpdateType = {
             eventName: 'dbEventAddOrUpdate';
             dbName: common.dbName;
@@ -140,6 +147,7 @@ export declare namespace reactNative {
             'diaryAll': api.automaticMinds.diaryValue[];
             'bdiAll': api.psychologyTests.defaultValue[];
             'gratitudeAll': api.grattitude.gratitudeItemType[];
+            'compareAll': api.automaticMinds.compareValue[];
             'worryAll': api.psychologyTests.defaultValue[];
             'hduAll': api.psychologyTests.hduValue[];
             'burnOutAll': api.psychologyTests.burnOutValue[],
