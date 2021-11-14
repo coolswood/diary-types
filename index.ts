@@ -45,14 +45,17 @@ export declare namespace reactNative {
             | dbEventAddOrUpdateType
             | dbEventDeleteType
             | getRNdataType
-            | gratitudeMigrationsType
-            | compareMigrationsType
+            | updatePopupType
             | webViewConsoleType
             | changeLangType
             | routeType
 
         type reviewPopupType = {
             eventName: 'reviewPopup';
+        }
+
+        type updatePopupType = {
+            eventName: 'updatePopup';
         }
 
         type loadedType = {
@@ -95,16 +98,6 @@ export declare namespace reactNative {
                 worry?: api.psychologyTests.defaultValue[],
                 burnOut?: api.psychologyTests.burnOutValue[]
             }
-        }
-
-        type gratitudeMigrationsType = {
-            eventName: 'gratitudeMigrations';
-            data: api.grattitude.gratitudeItemType[]
-        }
-
-        type compareMigrationsType = {
-            eventName: 'compareMigrations';
-            data: api.automaticMinds.compareValue[]
         }
 
         type dbEventAddOrUpdateType = {
