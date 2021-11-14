@@ -35,7 +35,8 @@ export declare namespace reactNative {
 
     namespace onMessage {
 
-        type onMessageCommon = reviewPopupType
+        type onMessageCommon =
+            reviewPopupType
             | loadedType
             | paymentType
             | cancelTimerType
@@ -109,7 +110,7 @@ export declare namespace reactNative {
         type dbEventAddOrUpdateType = {
             eventName: 'dbEventAddOrUpdate';
             dbName: common.dbName;
-            data: api.automaticMinds.diaryValue;
+            data: api.psychologyTests.testsTypes | api.automaticMinds.diaryValue | api.grattitude.gratitudeItemType | api.automaticMinds.compareValue;
         }
 
         type dbEventDeleteType = {
@@ -172,23 +173,11 @@ export declare namespace api {
         };
 
         type gratitudeItemType = {
-            id: string;
-            score: ScoreTypes;
-            records: recordsType[];
-        };
-
-        type gratitudeItemNewType = {
+            id: number;
             dt: number;
             date: string;
             year: number;
             score: ScoreTypes;
-            records: recordsType[];
-        };
-
-        type gratitudeItemSelectedType = {
-            date: string;
-            start: null | false | number;
-            finish: null | number;
             records: recordsType[];
         };
     }
@@ -234,6 +223,8 @@ export declare namespace api {
     }
 
     namespace psychologyTests {
+        type testsTypes = defaultValue | hduValue | burnOutValue;
+
         type defaultValue = {
             date: string | null;
             id: number;
@@ -289,7 +280,10 @@ export declare namespace api {
             | 'loneliness';
     }
 
-    type alldata = api.automaticMinds.diaryValue & api.psychologyTests.hduValue & api.psychologyTests.defaultValue & api.automaticMinds.compareValue
+    type alldata = api.automaticMinds.diaryValue
+        & api.psychologyTests.hduValue
+        & api.psychologyTests.defaultValue
+        & api.automaticMinds.compareValue
 
     type authData = {
         login: string;
