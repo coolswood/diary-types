@@ -386,6 +386,34 @@ export declare namespace api {
         }
     }
 
+    namespace shareDiary {
+        namespace shareDiaryGetAll {
+            type request = { user: string };
+            type response = {
+                shared: number[]
+            }
+        }
+
+        namespace shareDiaryGetItem {
+            type request = { user: string, id: number };
+            type response = api.automaticMinds.diaryValue;
+        }
+
+        namespace shareDiaryAdd {
+            type request = { user: string, item: api.automaticMinds.diaryValue };
+            type response = {
+                status: 'OK'
+            }
+        }
+
+        namespace shareDiaryDelete {
+            type request = { user: string, id: number };
+            type response = {
+                status: 'OK'
+            }
+        }
+    }
+
     namespace feed {
         type feedItem = {
             id: string;
